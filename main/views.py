@@ -24,9 +24,9 @@ class StudentViewSet(viewsets.ModelViewSet):
 class LibraryHistoryViewSet(viewsets.ModelViewSet):
     queryset = LibraryHistory.objects.all()
     serializer_class = LibraryHistorySerializer
-    permission_classes = [IsOfficeStaff | IsLibrarian]  # Office Staff and Librarians
+    permission_classes = [IsAdmin | IsOfficeStaff | IsLibrarian]  # Admin, Office Staff and Librarians
 
 class FeesHistoryViewSet(viewsets.ModelViewSet):
     queryset = FeesHistory.objects.all()
     serializer_class = FeesHistorySerializer
-    permission_classes = [IsOfficeStaff]  # Only Office Staff
+    permission_classes = [IsAdmin | IsOfficeStaff |   # Office Staff and Admin
